@@ -8,7 +8,9 @@ tagline: Technology, configuration, and the occasional rabbit hole.
 description: >-
   A blog by Matt Atkinson covering technology, tools, and practical how-tos.
 
-url: "https://configmatt.com"
+# While previewing via github.io — swap these two lines once configmatt.com DNS is live:
+url: "https://configmatt.github.io"
+baseurl: "/configmatt.com"
 
 github:
   username: ConfigMatt
