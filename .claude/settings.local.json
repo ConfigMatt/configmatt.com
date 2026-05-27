@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(winget --version)",
+      "PowerShell(scoop --version 2>$null)",
+      "PowerShell(winget install Python.Python.3.12 --accept-source-agreements --accept-package-agreements 2>&1)"
+    ]
+  }
+}

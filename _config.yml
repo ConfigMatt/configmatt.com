@@ -1,0 +1,74 @@
+lang: en
+timezone: America/Chicago
+
+title: ConfigMatt
+tagline: Technology, configuration, and the occasional rabbit hole.
+description: >-
+  A blog by Matt Atkinson covering technology, tools, and practical how-tos.
+
+url: "https://configmatt.com"
+
+github:
+  username: ConfigMatt
+
+social:
+  name: Matt Atkinson
+  email: matt.atkinson@gmail.com
+  links:
+    - https://github.com/ConfigMatt
+
+# Theme mode: leave blank to follow the user's system preference
+theme_mode: # [light | dark]
+
+avatar: /assets/img/avatar.jpg
+
+toc: true
+
+comments:
+  active: # [disqus | utterances | giscus]  — fill in later to enable comments
+
+paginate: 10
+
+# SEO / sharing
+google_analytics:
+  id: # G-XXXXXXXXXX — add your GA4 id here
+
+# Post defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      math: false
+      mermaid: false
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - tools
+  - README.md
+  - LICENSE
+  - "*.config.js"
+  - package*.json
+  - scripts/
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/

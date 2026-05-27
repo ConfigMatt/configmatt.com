@@ -1,0 +1,21 @@
+# Normalize line endings
+* text=auto
+
+# Force LF for these file types
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.html text eol=lf
+*.rb text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+CNAME text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.JPG binary
+*.PNG binary
+*.gif binary
+*.ico binary

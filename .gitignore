@@ -1,0 +1,28 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+.bundle/
+vendor/
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Blogger export (don't commit the raw export)
+Blogger Export/
+
+# Python
+__pycache__/
+*.pyc
+scripts/__pycache__/
+
+# Claude Code settings (local only)
+.claude/
