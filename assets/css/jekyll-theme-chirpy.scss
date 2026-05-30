@@ -154,3 +154,33 @@ html[data-mode="dark"] #search-result-wrapper .card {
 ::-webkit-scrollbar-thumb        { background: #1e2334; border-radius: 999px; }
 ::-webkit-scrollbar-thumb:hover  { background: #2a3048; }
 
+/* ── Embedded / iframe mode ─────────────────────────────────────────────── */
+/* Hides Chirpy chrome when blog is embedded inside configmatt.com          */
+
+html.embedded #topbar-wrapper,
+html.embedded #topbar,
+html.embedded #sidebar { display: none !important; }
+
+html.embedded #main-wrapper {
+  margin-left: 0 !important;
+  padding-top: 0 !important;
+  width: 100% !important;
+}
+
+html.embedded #core-wrapper {
+  max-width: 100% !important;
+  padding: 1rem 1.5rem !important;
+}
+
+html.embedded .back-to-top { display: none !important; }
+
+/* Fix hover state sticking on post cards inside the iframe */
+html.embedded .post-preview {
+  background-color: transparent !important;
+  transition: background-color 0.05s !important;
+}
+
+html.embedded .post-preview:hover {
+  background-color: rgba(79, 142, 247, 0.06) !important;
+}
+

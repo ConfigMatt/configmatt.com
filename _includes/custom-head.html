@@ -3,22 +3,55 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
 
-<!-- Embedded mode: hide Chirpy chrome when loaded inside configmatt.com -->
 <style>
-html.embedded #sidebar,
-html.embedded #topbar-wrapper { display: none !important; }
+/* Applied immediately when embedded class is set by the script below */
+html.embedded #topbar-wrapper,
+html.embedded #topbar { display: none !important; }
+html.embedded #sidebar { display: none !important; }
 html.embedded #main-wrapper {
   margin-left: 0 !important;
   padding-top: 0 !important;
+  width: 100% !important;
 }
 html.embedded #core-wrapper {
   max-width: 100% !important;
   padding: 1rem 1.5rem !important;
 }
 html.embedded .back-to-top { display: none !important; }
-</style>
-<script>
-if (window.self !== window.top) {
-  document.documentElement.classList.add('embedded');
+
+/* Fix post-preview hover state persistence inside iframe */
+html.embedded .post-preview {
+  background-color: transparent !important;
+  transition: background-color 0.05s !important;
 }
+html.embedded .post-preview:hover {
+  background-color: rgba(79, 142, 247, 0.06) !important;
+}
+</style>
+
+<script>
+(function () {
+  try {
+    if (window.self === window.top) return; /* not in an iframe */
+  } catch (e) { /* cross-origin top access blocked — we are in an iframe */ }
+
+  /* Add class for CSS hooks above */
+  document.documentElement.classList.add('embedded');
+
+  /* Also hide directly via style in case CSS hasn't parsed yet */
+  function hide() {
+    ['topbar-wrapper', 'topbar', 'sidebar'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    var mw = document.getElementById('main-wrapper');
+    if (mw) { mw.style.marginLeft = '0'; mw.style.paddingTop = '0'; mw.style.width = '100%'; }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hide);
+  } else {
+    hide();
+  }
+})();
 </script>
