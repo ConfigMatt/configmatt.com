@@ -35,8 +35,19 @@ paginate: 10
 google_analytics:
   id: # G-XXXXXXXXXX — add your GA4 id here
 
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
 # Post defaults
 defaults:
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
   - scope:
       path: ""
       type: posts

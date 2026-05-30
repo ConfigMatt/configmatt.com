@@ -31,14 +31,17 @@ html.embedded .post-preview:hover {
 
 <script>
 (function () {
-  try {
-    if (window.self === window.top) return; /* not in an iframe */
-  } catch (e) { /* cross-origin top access blocked — we are in an iframe */ }
+  /* Detect embedded mode via URL param (?embedded=1) or persisted sessionStorage */
+  var hasParam = /[?&]embedded/.test(location.search);
+  var hasSS = false;
+  try { hasSS = sessionStorage.getItem('embedded') === '1'; } catch (e) {}
+  if (!hasParam && !hasSS) return;
 
-  /* Add class for CSS hooks above */
+  /* Persist so navigating within the iframe keeps embedded mode */
+  try { sessionStorage.setItem('embedded', '1'); } catch (e) {}
+
   document.documentElement.classList.add('embedded');
 
-  /* Also hide directly via style in case CSS hasn't parsed yet */
   function hide() {
     ['topbar-wrapper', 'topbar', 'sidebar'].forEach(function (id) {
       var el = document.getElementById(id);
