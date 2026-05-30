@@ -1,0 +1,155 @@
+---
+---
+
+@charset "UTF-8";
+
+@import 'main';
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ConfigMatt Blog — visual alignment with configmatt.com
+   Palette: bg #0b0d14  surface #13151f  blue #4f8ef7  purple #8b5cf6
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Core dark-mode palette ─────────────────────────────────────────────── */
+
+html[data-mode="dark"] {
+  --body-bg:             #0b0d14;
+  --main-bg:             #0b0d14;
+  --sidebar-bg:          #0f1119;
+  --topbar-wrapper-bg:   #0b0d14;
+  --card-bg:             #13151f;
+  --border-color:        #1e2334;
+  --dash-color:          #1e2334;
+
+  --text-color:          #e2e8f0;
+  --text-muted-color:    #7a8599;
+  --heading-color:       #e2e8f0;
+  --label-color:         #e2e8f0;
+
+  --link-color:          #4f8ef7;
+  --link-underline:      rgba(79, 142, 247, 0.3);
+  --btn-active-color:    #4f8ef7;
+  --btn-active-bg:       rgba(79, 142, 247, 0.1);
+  --icon-fill:           #e2e8f0;
+
+  /* Code blocks */
+  --code-bg:             #13151f;
+  --code-header-bg:      #1e2334;
+  --code-header-text:    #7a8599;
+  --kbd-bg:              #1e2334;
+  --highlight-bg-color:  #13151f;
+
+  /* Tables */
+  --tb-odd-bg:           #13151f;
+  --tb-even-bg:          #0f1117;
+  --tb-border:           #1e2334;
+
+  /* Tags */
+  --tag-bg:              rgba(79, 142, 247, 0.07);
+  --tag-hover:           rgba(79, 142, 247, 0.16);
+  --search-tag-bg:       #13151f;
+
+  /* Misc */
+  --mask-bg:             rgba(11, 13, 20, 0.85);
+  --sidebar-btn-bg:      rgba(255, 255, 255, 0.04);
+  --footer-bg:           #0b0d14;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────── */
+
+/* Site title — gradient text matching landing page heading style */
+#sidebar .site-title a {
+  background: linear-gradient(135deg, #4f8ef7, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Active nav item */
+#sidebar .nav-link.active {
+  color: #4f8ef7 !important;
+  background: rgba(79, 142, 247, 0.08);
+  border-radius: 8px;
+}
+
+#sidebar .nav-link:hover:not(.active) {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+
+/* ── Post headings — gradient left-bar (mirrors landing page section-title) */
+
+.post-content h2,
+.post-content h3 {
+  padding-left: 0.8rem;
+  position: relative;
+}
+
+.post-content h2::before,
+.post-content h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  bottom: 0.1em;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #4f8ef7, #8b5cf6);
+}
+
+/* ── Tags / category pills — mirror landing page skill tags ─────────────── */
+
+.post-tag,
+a.post-tag {
+  background:    rgba(79, 142, 247, 0.07) !important;
+  border:        1px solid rgba(79, 142, 247, 0.18) !important;
+  color:         #e2e8f0 !important;
+  border-radius: 999px !important;
+  transition:    background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.post-tag:hover,
+a.post-tag:hover {
+  background:    rgba(79, 142, 247, 0.16) !important;
+  border-color:  rgba(79, 142, 247, 0.38) !important;
+  color:         #4f8ef7 !important;
+}
+
+/* ── Links ──────────────────────────────────────────────────────────────── */
+
+html[data-mode="dark"] a:not(.btn):not(.post-tag):not(.nav-link):not(.site-title) {
+  color: #4f8ef7;
+}
+
+html[data-mode="dark"] a:not(.btn):not(.post-tag):not(.nav-link):not(.site-title):hover {
+  color: #8b5cf6;
+}
+
+/* ── Topbar ─────────────────────────────────────────────────────────────── */
+
+html[data-mode="dark"] #topbar-wrapper {
+  border-bottom: 1px solid #1e2334;
+}
+
+/* ── Post cards (home page list) ─────────────────────────────────────────── */
+
+html[data-mode="dark"] .card,
+html[data-mode="dark"] .card-wrapper {
+  border-color: #1e2334;
+}
+
+/* ── Search ──────────────────────────────────────────────────────────────── */
+
+html[data-mode="dark"] #search-result-wrapper .card {
+  background: #13151f;
+  border-color: #1e2334;
+}
+
+/* ── Scrollbar — subtle dark styling ────────────────────────────────────── */
+
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: #0b0d14; }
+::-webkit-scrollbar-thumb        { background: #1e2334; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover  { background: #2a3048; }

@@ -20,8 +20,7 @@ social:
   links:
     - https://github.com/ConfigMatt
 
-# Theme mode: leave blank to follow the user's system preference
-theme_mode: # [light | dark]
+theme_mode: dark
 
 avatar: /assets/img/avatar.jpg
 
